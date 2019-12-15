@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular-js event</title>
+    <script src="js/angular.min.js"></script>
+    <script>
+        // create a module using js
+        var app1 = angular.module('pinyougou', []);
+
+        // create a controller, the first parm is name
+        app1.controller('demoController', function ($scope, $http) { // the beginning of a class
+            // code and variables
+
+            // define a variable
+
+            // create a method
+            // http build-in object
+            $scope.getData=function(){
+                $http.get('data.json').success(function (response) {
+                    $scope.list = response;
+                });
+            };
+
+        })
+    </script>
+</head>
+<body>
+
+<h3>
+
+</h3>
+
+<!--ng-app : create a default module then use it-->
+<div ng-app="pinyougou" ng-controller="demoController" ng-init="getData()">
+
+    <div  ng-repeat="obj in list">
+        {{obj.name}} is {{obj.age}} years old~
+    </div>
+</div>
+
+
+</body>
+</html>

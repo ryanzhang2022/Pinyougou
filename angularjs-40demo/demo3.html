@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular-js event</title>
+    <script src="js/angular.min.js"></script>
+    <script>
+        // create a module using js
+        var app1 = angular.module('pinyougou', []);
+
+        // create a controller, the first parm is name
+        app1.controller('demoController', function ($scope) { // the beginning of a class
+            // code and variables
+            $scope.add=function () {
+                $scope.z = parseInt($scope.x) + parseInt($scope.y);
+            }
+        })
+    </script>
+</head>
+<body>
+
+<h3>
+
+</h3>
+
+<!--ng-app : create a default module then use it-->
+<div ng-app="pinyougou" ng-controller="demoController">
+    x:<input ng-model="x" /><br>
+    y:<input ng-model="y"/><br>
+    <!-- call method -->
+    <button ng-click="add()">calculate</button>
+    <!--notice: shouldn't write $scope in page-tag, just z-->
+        sum: {{z}}
+</div>
+
+
+</body>
+</html>
